@@ -1,0 +1,7 @@
+.table__body {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 100%;
+    margin: 0 5%;
+}
