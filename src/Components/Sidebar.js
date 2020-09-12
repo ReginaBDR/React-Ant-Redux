@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import 'antd/dist/antd.css';
 import { Layout, Menu } from 'antd';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import {
   DesktopOutlined,
   PieChartOutlined,
@@ -26,13 +26,13 @@ export default class Sidebar extends Component {
           <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse} style={{height:'100vh', flex:1}}>
             <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" style={{paddingTop:'40px'}}>
               <Menu.Item key="1" icon={<PieChartOutlined />}>
-              <Link to="/home">Home</Link>
+              <NavLink to="/">Home</NavLink>
               </Menu.Item>
               <Menu.Item key="2" icon={<DesktopOutlined />}>
-              <Link to="/shippings">Shippings</Link>
+              <NavLink to="/shippings">Shippings</NavLink>
               </Menu.Item>
               <Menu.Item key="3" icon={<UserOutlined />}>
-              <Link to="/users">Users</Link>
+              <NavLink to="/users">Users</NavLink>
               </Menu.Item>
               <Menu.Item key="4" icon={<TeamOutlined />}>
                 Team

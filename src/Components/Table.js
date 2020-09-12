@@ -1,47 +1,46 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useContext } from 'react';
-import './Table.css';
-import 'antd/dist/antd.css';
-import { Table, Tag, Space } from 'antd';
+import { Table, Space, Pagination } from 'antd';
 import { StateContext } from '../StateProvider.js';
 
 const { Column, ColumnGroup } = Table;
 
-function Shippings() {
+function Shippings(props) {
     // eslint-disable-next-line no-unused-vars
-    const [info, setInfo] = useContext(StateContext);
+    const [data, setdata] = useContext(StateContext);
     return (
-        <Table dataSource={info} className="table__body">
+        <Table dataSource={data} className="table__body" defaultCurrent={1} total={5}>
             <ColumnGroup>
-                <Column title="First Name" dataIndex="firstName" key="firstName" />
-                <Column title="Last Name" dataIndex="lastName" key="lastName" />
+                <Column title="First Name" dataIndex="username" key={data.id} />
+                <Column title="Last Name" dataIndex="name" key={data.id} />
             </ColumnGroup>
-            <Column title="Age" dataIndex="age" key="age" />
-            <Column title="Address" dataIndex="address" key="address" />
-            <Column
+            <Column title="Phone" dataIndex="phone" key={data.id} />
+            <Column title="Address" dataIndex="address" key={data.id} />
+            {/* <Column
                 title="Tags"
-                dataIndex="tags"
-                key="tags"
-                render={tags => (
+                dataIndex="company"
+                key={data.id}
+                render={company => (
                     <>
-                        {tags.map(tag => (
-                            <Tag color="blue" key={tag}>
+                        {company.map(tag => (
+                            <Tag color="blue" key={data.id}>
                                 {tag}
                             </Tag>
                         ))}
                     </>
                 )}
-            />
+            /> */}
             <Column
                 title="Action"
-                key="action"
+                key={data.id}
                 render={(text, record) => (
                     <Space size="middle">
-                        <a>Invite {record.lastName}</a>
+                        <a>Invite {record.username}</a>
                         <a>Delete</a>
                     </Space>
                 )}
             />
+            <Pagination defaultCurrent={1} total={5} />
         </Table> 
     );
 }
