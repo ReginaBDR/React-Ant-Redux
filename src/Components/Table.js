@@ -1,41 +1,18 @@
-import React from 'react'
-import './Table.css'
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useContext } from 'react';
+import './Table.css';
 import 'antd/dist/antd.css';
 import { Table, Tag, Space } from 'antd';
+import { StateContext } from '../StateProvider.js';
 
 const { Column, ColumnGroup } = Table;
 
-const data = [
-    {
-    key: '1',
-    firstName: 'John',
-    lastName: 'Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-    tags: ['nice', 'developer'],
-  },
-  {
-    key: '2',
-    firstName: 'Jim',
-    lastName: 'Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-    tags: ['loser'],
-  },
-  {
-    key: '3',
-    firstName: 'Joe',
-    lastName: 'Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
-  }
-];
-
-function TableBody(columns={columns}, dataSource={data}) {
+function Shippings() {
+    // eslint-disable-next-line no-unused-vars
+    const [info, setInfo] = useContext(StateContext);
     return (
-        <Table dataSource={data} className="table__body">
-            <ColumnGroup title="Name">
+        <Table dataSource={info} className="table__body">
+            <ColumnGroup>
                 <Column title="First Name" dataIndex="firstName" key="firstName" />
                 <Column title="Last Name" dataIndex="lastName" key="lastName" />
             </ColumnGroup>
@@ -69,4 +46,4 @@ function TableBody(columns={columns}, dataSource={data}) {
     );
 }
 
-export default TableBody;
+export default Shippings;

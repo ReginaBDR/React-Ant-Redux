@@ -9,3 +9,14 @@
   width: 100vw;
   display: flex;
 }
+
+.App .main {
+  width: 100%;
+  height: 100vh;
+}
+
+.App .main .home {
+  display: grid;
+  place-items: center;
+  height: 100%;
+}
